@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лист Кохання</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ffefef, #ffe5f1);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header-block {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-out;
+        }
+
+        .header-title {
+            color: #ff4b8b;
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: heartbeat 1.5s infinite;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-block {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-out 0.3s backwards;
+        }
+
+        .message-text {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .reasons-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-out 0.6s backwards;
+        }
+
+        .reasons-title {
+            color: #ff4b8b;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        .reasons-list {
+            list-style: none;
+            padding: 0;
+            counter-reset: reason-counter;
+        }
+
+        .reason-item {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            animation: fadeIn 0.5s ease-out both;
+            display: flex;
+            align-items: center;
+        }
+
+        .reason-item::before {
+            counter-increment: reason-counter;
+            content: counter(reason-counter) ".";
+            color: #ff4b8b;
+            font-weight: bold;
+            margin-right: 10px;
+            min-width: 30px;
+        }
+
+        .reason-item:hover {
+            transform: translateX(10px);
+            background-color: #fff5f8;
+            box-shadow: 0 5px 15px rgba(255, 75, 139, 0.2);
+        }
+
+        @media (max-width: 1200px) {
+            .main-container {
+                padding: 15px;
+            }
+
+            .header-title {
+                font-size: 2.5em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header-title {
+                font-size: 2em;
+            }
+
+            .message-text {
+                font-size: 1.1em;
+            }
+
+            .reasons-title {
+                font-size: 2em;
+            }
+
+            .header-block,
+            .message-block,
+            .reasons-container {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-title {
+                font-size: 1.8em;
+            }
+
+            .message-text {
+                font-size: 1em;
+            }
+
+            .reasons-title {
+                font-size: 1.6em;
+            }
+
+            .reason-item {
+                font-size: 0.9em;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Головний заголовок -->
+        <div class="header-block">
+            <h1 class="header-title">Моїй Коханій</h1>
+        </div>
+
+        <!-- Блок з повідомленням -->
+        <div class="message-block">
+            <p class="message-text">
+                Кожного дня я закохуюся в тебе все більше і більше. Ти наповнюєш моє життя радістю, 
+                світлом і любов'ю. У цей особливий день я хочу розказати тобі про всі ті маленькі 
+                і великі речі, за які я тебе так сильно кохаю. Кожна причина - це частинка мого серця, 
+                віддана тобі назавжди.
+            </p>
+        </div>
+
+        <!-- Контейнер зі списком причин -->
+        <div class="reasons-container">
+            <h2 class="reasons-title">100 Причин Чому Я Тебе Кохаю</h2>
+            <ul class="reasons-list">
+                <li class="reason-item">Твоя щира усмішка ❤️</li>
+                <li class="reason-item">Твої ніжні очі ❤️</li>
+                <!-- ... всі інші причини ... -->
+              <li class="reason-item">Твій добрий характер ❤️</li>
+            <li class="reason-item">Твоя турбота про мене ❤️</li>
+            <li class="reason-item">Твої теплі обійми ❤️</li>
+            <li class="reason-item">Твій дзвінкий сміх ❤️</li>
+            <li class="reason-item">Твоя віра в мене ❤️</li>
+            <li class="reason-item">Твоя підтримка у складні моменти ❤️</li>
+            <li class="reason-item">Твоя неймовірна доброта ❤️</li>
+            <li class="reason-item">Твоя відкритість до нового ❤️</li>
+            <li class="reason-item">Твоя розумність і мудрість ❤️</li>
+            <li class="reason-item">Твоя щирість у кожному слові ❤️</li>
+            <li class="reason-item">Твої ніжні дотики ❤️</li>
+            <li class="reason-item">Твої розумні поради ❤️</li>
+            <li class="reason-item">Твоя терплячість ❤️</li>
+            <li class="reason-item">Твоя ніжність у всьому, що ти робиш ❤️</li>
+            <li class="reason-item">Твій талант до кулінарії ❤️</li>
+            <li class="reason-item">Твоя любов до пригод ❤️</li>
+            <li class="reason-item">Твоя чарівна усмішка зранку ❤️</li>
+            <li class="reason-item">Твоя турбота про моє здоров'я ❤️</li>
+            <li class="reason-item">Твоя пристрасть до своїх мрій ❤️</li>
+            <li class="reason-item">Твої чарівні маленькі звички ❤️</li>
+            <li class="reason-item">Твоя здатність зробити мене щасливим ❤️</li>
+            <li class="reason-item">Твої вміння радіти дрібницям ❤️</li>
+            <li class="reason-item">Твоє почуття гумору ❤️</li>
+            <li class="reason-item">Твоя мрійливість ❤️</li>
+            <li class="reason-item">Твоя щедрість ❤️</li>
+            <li class="reason-item">Твоя любов до природи ❤️</li>
+            <li class="reason-item">Твої спонтанні ідеї ❤️</li>
+            <li class="reason-item">Твоя чарівна простота ❤️</li>
+            <li class="reason-item">Твоя любов до книг ❤️</li>
+            <li class="reason-item">Твоя турбота про інших ❤️</li>
+            <li class="reason-item">Твоя рішучість ❤️</li>
+            <li class="reason-item">Твої щирі емоції ❤️</li>
+            <li class="reason-item">Твої теплі слова ❤️</li>
+            <li class="reason-item">Твоя енергія і життєрадісність ❤️</li>
+            <li class="reason-item">Твоя вірність ❤️</li>
+            <li class="reason-item">Твої романтичні жести ❤️</li>
+            <li class="reason-item">Твої цікаві історії ❤️</li>
+            <li class="reason-item">Твоя любов до музики ❤️</li>
+            <li class="reason-item">Твоє вміння слухати ❤️</li>
+            <li class="reason-item">Твоя витонченість ❤️</li>
+            <li class="reason-item">Твої маленькі сюрпризи ❤️</li>
+            <li class="reason-item">Твоє велике серце ❤️</li>
+            <li class="reason-item">Твоя здатність надихати ❤️</li>
+            <li class="reason-item">Твоя любов до тварин ❤️</li>
+            <li class="reason-item">Твоя внутрішня сила ❤️</li>
+            <li class="reason-item">Твоє відчуття стилю ❤️</li>
+            <li class="reason-item">Твоя чуттєвість ❤️</li>
+            <li class="reason-item">Твоя турбота про мене, навіть у дрібницях ❤️</li>
+            <li class="reason-item">Твоя ніжність у погляді ❤️</li>
+            <li class="reason-item">Твоя любов до сім'ї ❤️</li>
+            <li class="reason-item">Твоя чесність ❤️</li>
+            <li class="reason-item">Твоє почуття справедливості ❤️</li>
+            <li class="reason-item">Твоя природна краса ❤️</li>
+            <li class="reason-item">Твої теплі обійми в холодні дні ❤️</li>
+            <li class="reason-item">Твоя інтуїція ❤️</li>
+            <li class="reason-item">Твої мрії, в які ти щиро віриш ❤️</li>
+            <li class="reason-item">Твоє прагнення до кращого ❤️</li>
+            <li class="reason-item">Твоя терпимість ❤️</li>
+            <li class="reason-item">Твої вміння прощати ❤️</li>
+            <li class="reason-item">Твоя сміливість ❤️</li>
+            <li class="reason-item">Твоя романтична натура ❤️</li>
+            <li class="reason-item">Твоя любов до подорожей ❤️</li>
+            <li class="reason-item">Твоє вміння зробити будь-який день особливим ❤️</li>
+            <li class="reason-item">Твоя щирість у коханні ❤️</li>
+            <li class="reason-item">Твої ніжні слова ❤️</li>
+            <li class="reason-item">Твій спокійний характер ❤️</li>
+            <li class="reason-item">Твоя увага до деталей ❤️</li>
+            <li class="reason-item">Твої спонтанні поцілунки ❤️</li>
+            <li class="reason-item">Твоя пристрасть до життя ❤️</li>
+            <li class="reason-item">Твої мрійливі очі ❤️</li>
+            <li class="reason-item">Твоя здатність бути справжньою ❤️</li>
+            <li class="reason-item">Твоя чарівна несерйозність ❤️</li>
+            <li class="reason-item">Твоє прагнення до гармонії ❤️</li>
+            <li class="reason-item">Твоя любов до краси світу ❤️</li>
+            <li class="reason-item">Твої захоплення ❤️</li>
+            <li class="reason-item">Твоє щире здивування ❤️</li>
+            <li class="reason-item">Твоя здатність робити мене кращим ❤️</li>
+            <li class="reason-item">Твої щасливі моменти ❤️</li>
+            <li class="reason-item">Твоя наполегливість ❤️</li>
+            <li class="reason-item">Твоя внутрішня краса ❤️</li>
+            <li class="reason-item">Твої мрії про майбутнє ❤️</li>
+            <li class="reason-item">Твоя любов до ночей під зорями ❤️</li>
+            <li class="reason-item">Твоє вміння створювати затишок ❤️</li>
+            <li class="reason-item">Твої обійми, які дарують спокій ❤️</li>
+            <li class="reason-item">Твої сльози щастя ❤️</li>
+            <li class="reason-item">Твоє вміння надихати на нове ❤️</li>
+            <li class="reason-item">Твої слова підтримки ❤️</li>
+            <li class="reason-item">Твої теплі руки ❤️</li>
+            <li class="reason-item">Твоя сила духу ❤️</li>
+            <li class="reason-item">Твої милі капризи ❤️</li>
+            <li class="reason-item">Твоя щира цікавість ❤️</li>
+            <li class="reason-item">Твоя дитяча радість ❤️</li>
+            <li class="reason-item">Твої обіцянки, які ти завжди виконуєш ❤️</li>
+            <li class="reason-item">Твоя любов до світанків ❤️</li>
+            <li class="reason-item">Твої щирі зізнання ❤️</li>
+            <li class="reason-item">Твоя віра в нас ❤️</li>
+            <li class="reason-item">Твоє бажання бути поруч ❤️</li>
+                <li class="reason-item">Твоє кохання, яке змінює все навколо ❤️</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.reason-item');
+            items.forEach((item, index) => {
+                item.style.animationDelay = `${(index * 0.1) + 0.8}s`;
+            });
+        });
+    </script>
+</body>
+  </html>
